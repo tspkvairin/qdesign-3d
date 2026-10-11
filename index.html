@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Qdesign.kz — 3D-конфигуратор корпусной мебели: шаблоны, размеры и цвет."
+    />
+    <title>Qdesign.kz — 3D-конфигуратор мебели</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <div class="backdrop" id="backdrop"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <header class="brand">
+          <div class="brand__mark" aria-hidden="true">Q</div>
+          <div>
+            <p class="brand__name">Qdesign.kz</p>
+            <p class="brand__tag">3D-конфигуратор мебели</p>
+          </div>
+          <button class="icon-btn sheet-close" id="close-panel" type="button" aria-label="Закрыть настройки">
+            Закрыть
+          </button>
+        </header>
+
+        <section class="panel">
+          <h2>Шаблон</h2>
+          <div class="templates" role="list">
+            <button class="card is-active" type="button" data-template="open" aria-pressed="true">
+              <span class="card__preview" aria-hidden="true">
+                <svg viewBox="0 0 72 56" fill="none">
+                  <rect x="10" y="6" width="52" height="44" rx="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M14 10h44v36H14z" fill="currentColor" opacity="0.08" />
+                  <path d="M14 28h44" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </span>
+              <span class="card__title">Простая тумба</span>
+              <span class="card__hint">Без фасадов, открытый корпус</span>
+            </button>
+
+            <button class="card" type="button" data-template="door" aria-pressed="false">
+              <span class="card__preview" aria-hidden="true">
+                <svg viewBox="0 0 72 56" fill="none">
+                  <rect x="10" y="6" width="52" height="44" rx="2" stroke="currentColor" stroke-width="2" />
+                  <rect x="14" y="10" width="44" height="36" rx="1" stroke="currentColor" stroke-width="1.5" />
+                  <rect x="48" y="24" width="3" height="10" rx="1" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="card__title">С дверцей</span>
+              <span class="card__hint">Одна дверца и ручка</span>
+            </button>
+
+            <button class="card" type="button" data-template="drawers" aria-pressed="false">
+              <span class="card__preview" aria-hidden="true">
+                <svg viewBox="0 0 72 56" fill="none">
+                  <rect x="10" y="6" width="52" height="44" rx="2" stroke="currentColor" stroke-width="2" />
+                  <rect x="14" y="10" width="44" height="16" rx="1" stroke="currentColor" stroke-width="1.5" />
+                  <rect x="14" y="30" width="44" height="16" rx="1" stroke="currentColor" stroke-width="1.5" />
+                  <rect x="32" y="16" width="8" height="3" rx="1" fill="currentColor" />
+                  <rect x="32" y="36" width="8" height="3" rx="1" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="card__title">С ящиками</span>
+              <span class="card__hint">Два выдвижных ящика</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Размеры</h2>
+          <p class="panel__note">Значения в миллиметрах. Модель обновляется сразу.</p>
+          <label class="field">
+            <span>Ширина</span>
+            <div class="field__row">
+              <input
+                id="width"
+                type="number"
+                inputmode="numeric"
+                min="400"
+                max="1600"
+                step="10"
+                value="600"
+              />
+              <span class="unit">мм</span>
+            </div>
+            <small>от 400 до 1600</small>
+          </label>
+          <label class="field">
+            <span>Высота</span>
+            <div class="field__row">
+              <input
+                id="height"
+                type="number"
+                inputmode="numeric"
+                min="400"
+                max="1600"
+                step="10"
+                value="800"
+              />
+              <span class="unit">мм</span>
+            </div>
+            <small>от 400 до 1600</small>
+          </label>
+          <label class="field">
+            <span>Глубина</span>
+            <div class="field__row">
+              <input
+                id="depth"
+                type="number"
+                inputmode="numeric"
+                min="250"
+                max="700"
+                step="10"
+                value="400"
+              />
+              <span class="unit">мм</span>
+            </div>
+            <small>от 250 до 700</small>
+          </label>
+          <p class="error" id="size-error" hidden>Проверьте размеры: значения вне допустимого диапазона.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Цвет корпуса</h2>
+          <div class="swatches" role="list">
+            <button class="swatch is-active" type="button" data-color="white" aria-pressed="true">
+              <span class="swatch__dot swatch__dot--white"></span>
+              Белый
+            </button>
+            <button class="swatch" type="button" data-color="gray" aria-pressed="false">
+              <span class="swatch__dot swatch__dot--gray"></span>
+              Серый
+            </button>
+            <button class="swatch" type="button" data-color="walnut" aria-pressed="false">
+              <span class="swatch__dot swatch__dot--walnut"></span>
+              Орех
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Экспорт</h2>
+          <p class="panel__note">PDF собирается из текущей модели прямо в браузере.</p>
+          <button class="download-pdf" id="download-pdf" type="button">
+            Скачать спецификацию PDF
+          </button>
+        </section>
+      </aside>
+
+      <main class="viewport">
+        <div class="viewport__bar">
+          <p id="view-hint">Вращайте модель жестом. Щепотка или колесо — масштаб.</p>
+          <div class="viewport__actions">
+            <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="sidebar">
+              Настройки
+            </button>
+            <button id="reset-camera" type="button">Сбросить камеру</button>
+          </div>
+        </div>
+        <div id="canvas-root" class="viewport__stage"></div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
