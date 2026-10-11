@@ -62,11 +62,11 @@ function syncSizesFromInputs() {
 
 function updateHint() {
   if (state.template === 'door') {
-    hint.textContent = 'Нажмите дверцу или потяните за ручку. Сцена вращается жестом.';
+    hint.textContent = 'Нажмите дверцу или потяните за ручку.';
   } else if (state.template === 'drawers') {
-    hint.textContent = 'Нажмите ящик или выдвиньте его рукой. Сцена вращается жестом.';
+    hint.textContent = 'Нажмите ящик или выдвиньте его рукой.';
   } else {
-    hint.textContent = 'Вращайте модель жестом. Щепотка или колесо — масштаб.';
+    hint.textContent = 'Вращайте модель мышью или касанием';
   }
 }
 
